@@ -1,0 +1,17 @@
+__pycache__/
+.venv
+.AvT
+.data
+mlflow.db
+
+# hypertuning, logs
+**/mlruns/*
+**/models/
+**/modellogs/*
+**/modellog/*
+**/logs/
+**/demo/
+**/*.log
+model.toml
+settings.toml
+*.pt

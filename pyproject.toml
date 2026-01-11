@@ -1,0 +1,51 @@
+[project]
+name = "ML2"
+version = "0.1.0"
+description = "Environment supporting ML course"
+requires-python = ">=3.11,<3.12"
+
+dependencies = [
+    "dash>=3.3.0",
+    "dash-bootstrap-components>=2.0.4",
+    "ipykernel>=7.1.0",
+    "mads-datasets",
+    "matplotlib>=3.10.7",
+    "mltrainer>=0.2.5",
+    "notebook>=7.4.7",
+    "numpy>=2.3.5",
+    "pandas>=2.3.3",
+    "plotly>=6.5.0",
+    "seaborn>=0.13.2",
+    "torchinfo>=1.8.0",
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "toml>=0.10.2",
+    "hyperopt>=0.2.7",
+    "mlflow>=3.6.0",
+    "visualize>=0.5.1",
+    "tokenizer>=3.6.2",
+    "tokenizers>=0.22.2",
+]
+
+# Define the CUDA 12.8 index
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+# Reference the index by name for torch packages
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128" }]
+torchvision = [{ index = "pytorch-cu128" }]
+torchaudio = [{ index = "pytorch-cu128" }]
+
+# Constrain environment to Windows AMD64
+[tool.uv]
+required-environments = ["sys_platform == 'win32' and platform_machine == 'AMD64'"]
+
+# Keep PyPI as default index
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+explicit = true
